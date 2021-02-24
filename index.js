@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 
+String.prototype.isNumber = function () { return /^\d+$/.test(this); }
+
 function formatCurrency(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -19,24 +21,22 @@ const properties = [
         type: 'input',
         name: 'rate',
         message: 'What is your day rate?',
-        length: 1,
         validate: function (value) {
-            if (!value.match("[0-9]+")) {
-                return "Please enter a valid number value."
+            if (String(value).isNumber()) {
+                return true;
             }
-            return true;
+            return "Please enter a valid number";
         }
     },
     {
         type: 'input',
         name: 'days',
         message: 'How many days?',
-        length: 1,
         validate: function (value) {
-            if (!value.match("[0-9]+")) {
-                return "Please enter a valid value."
+            if (String(value).isNumber()) {
+                return true;
             }
-            return true;
+            return "Please enter a valid number";
         }
     }
 ]
