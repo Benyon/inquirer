@@ -24,8 +24,9 @@ const properties = [
         validate: function (value) {
             if (String(value).isNumber()) {
                 return true;
+            } else {
+                return "Please enter a valid number";
             }
-            return "Please enter a valid number";
         }
     },
     {
@@ -35,8 +36,9 @@ const properties = [
         validate: function (value) {
             if (String(value).isNumber()) {
                 return true;
+            } else {
+                return "Please enter a valid number";
             }
-            return "Please enter a valid number";
         }
     }
 ]
